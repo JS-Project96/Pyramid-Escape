@@ -76,7 +76,7 @@ class Enemy:
         else:
             damage_dealt = self.spellpower - ((hero.defence * 3)/4)
             print("{name}'s spell hits {hero} for {damage} damage!".format(name = self.name, hero = hero.name, damage = damage_dealt))
-            hero.lose_health(self.strength)
+            hero.lose_health(self.spellpower)
         
         if hero.health <= 0:
             print("{hero} has been defeated! Try again?".format(hero = hero.name))
@@ -119,7 +119,7 @@ class Boss:
         else:
             damage_dealt = self.spellpower - ((hero.defence * 3)/4)
             print("{name}'s spell hits {hero} for {damage} damage!".format(name = self.name, hero = hero.name, damage = damage_dealt))
-            hero.lose_health(self.strength)
+            hero.lose_health(self.spellpower)
         
         if hero.health <= 0:
             print("{hero} has been defeated! Try again?".format(hero = hero.name))
@@ -134,5 +134,5 @@ class Boss:
 # hero.cast_spell(enemy)
 # enemy.cast_spell(hero)
 
-boss = Boss()
-boss.regen_health()
+# boss = Boss()
+# boss.regen_health()

@@ -18,16 +18,24 @@ class Hero:
         print("{name} has {health} health remaining".format(name = self.name, health = self.health))
 
     def attack(self, enemy):
-        damage_dealt = self.strength - enemy.defence
-        print("{name} attacks {enemy} for {damage} damage!".format(name = self.name, enemy = enemy.name, damage = damage_dealt))
-        enemy.lose_health(self.strength)
+        if self.strength <= 0:
+            damage_dealt = 0
+        else:
+            damage_dealt = self.strength - enemy.defence
+            print("{name} attacks {enemy} for {damage} damage!".format(name = self.name, enemy = enemy.name, damage = damage_dealt))
+            enemy.lose_health(self.strength)
+        
         if enemy.health <= 0:
             print("{enemy} has been defeated! Well done!".format(enemy = enemy.name))
     
-    def cast_spell(self, enemy):
-        damage_dealt = self.spellpower - ((enemy.defence * 3)/4)
-        print("{name}'s spell hits {enemy} for {damage} damage!".format(name = self.name, enemy = enemy.name, damage = damage_dealt))
-        enemy.lose_health(self.strength)
+    def cast_spell(self, enemy):#
+        if self.spellpower <= 0:
+            damage_dealt = 0
+        else:
+            damage_dealt = self.spellpower - ((enemy.defence * 3)/4)
+            print("{name}'s spell hits {enemy} for {damage} damage!".format(name = self.name, enemy = enemy.name, damage = damage_dealt))
+            enemy.lose_health(self.strength)
+        
         if enemy.health <= 0:
             print("{enemy} has been defeated! Well done!".format(enemy = enemy.name))
 
@@ -52,16 +60,24 @@ class Enemy:
         print("{name} has {health} health remaining".format(name = self.name, health = self.health))
 
     def attack(self, hero):
-        damage_dealt = self.strength - hero.defence
-        print("{name} attacks {hero} for {damage} damage!".format(name = self.name, hero = hero.name, damage = damage_dealt))
-        hero.lose_health(self.strength)
+        if self.strength <= 0:
+            damage_dealt = 0
+        else:
+            damage_dealt = self.strength - hero.defence
+            print("{name} attacks {hero} for {damage} damage!".format(name = self.name, hero = hero.name, damage = damage_dealt))
+            hero.lose_health(self.strength)
+        
         if hero.health <= 0:
             print("{hero} has been defeated! Try again?".format(hero = hero.name))
     
     def cast_spell(self, hero):
-        damage_dealt = self.spellpower - ((hero.defence * 3)/4)
-        print("{name}'s spell hits {hero} for {damage} damage!".format(name = self.name, hero = hero.name, damage = damage_dealt))
-        hero.lose_health(self.strength)
+        if self.spellpower <= 0:
+            damage_dealt = 0
+        else:
+            damage_dealt = self.spellpower - ((hero.defence * 3)/4)
+            print("{name}'s spell hits {hero} for {damage} damage!".format(name = self.name, hero = hero.name, damage = damage_dealt))
+            hero.lose_health(self.strength)
+        
         if hero.health <= 0:
             print("{hero} has been defeated! Try again?".format(hero = hero.name))
 
@@ -85,15 +101,33 @@ class Boss:
         health += self.health_regen
 
     def attack(self, hero):
-        damage_dealt = self.strength - hero.defence
-        print("{name} attacks {hero} for {damage} damage!".format(name = self.name, hero = hero.name, damage = damage_dealt))
-        hero.lose_health(self.strength)
+        if self.strength <= 0:
+            damage_dealt = 0
+        else:
+            damage_dealt = self.strength - hero.defence
+            print("{name} attacks {hero} for {damage} damage!".format(name = self.name, hero = hero.name, damage = damage_dealt))
+            hero.lose_health(self.strength)
+        
         if hero.health <= 0:
             print("{hero} has been defeated! Try again?".format(hero = hero.name))
     
     def cast_spell(self, hero):
-        damage_dealt = self.spellpower - ((hero.defence * 3)/4)
-        print("{name}'s spell hits {hero} for {damage} damage!".format(name = self.name, hero = hero.name, damage = damage_dealt))
-        hero.lose_health(self.strength)
+        if self.spellpower <= 0:
+            damage_dealt = 0
+        else:
+            damage_dealt = self.spellpower - ((hero.defence * 3)/4)
+            print("{name}'s spell hits {hero} for {damage} damage!".format(name = self.name, hero = hero.name, damage = damage_dealt))
+            hero.lose_health(self.strength)
+        
         if hero.health <= 0:
             print("{hero} has been defeated! Try again?".format(hero = hero.name))
+
+
+hero = Hero()
+enemy = Enemy("John", 200, 50, 0, 20)
+
+hero.attack(enemy)
+enemy.attack(hero)
+
+hero.cast_spell(enemy)
+enemy.cast_spell(hero)

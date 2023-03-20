@@ -34,7 +34,7 @@ class Hero:
         else:
             damage_dealt = self.spellpower - ((enemy.defence * 3)/4)
             print("{name}'s spell hits {enemy} for {damage} damage!".format(name = self.name, enemy = enemy.name, damage = damage_dealt))
-            enemy.lose_health(self.strength)
+            enemy.lose_health(self.spellpower)
         
         if enemy.health <= 0:
             print("{enemy} has been defeated! Well done!".format(enemy = enemy.name))

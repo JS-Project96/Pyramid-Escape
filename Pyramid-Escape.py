@@ -3,9 +3,10 @@
 
 class Hero:
 
-    def __init__(self, name = "Dave", health = 250, strength = 40, spellpower = 0, defence = 20):
+    def __init__(self, name = "Dave", health = 250, health_regen = 0, strength = 40, spellpower = 0, defence = 20):
         self.name = name
         self.health = health
+        self.health_regen = health_regen
         self.strength = strength
         self.spellpower = spellpower
         self.defence = defence
@@ -16,6 +17,11 @@ class Hero:
     def lose_health(self, amount):
         self.health = self.health - (amount - self.defence)
         print("{name} has {health} health remaining".format(name = self.name, health = self.health))
+    
+    def regen_health(self):
+        if self.health <= 250:
+            self.health += self.health_regen
+            print("{name} now has {health} after regenerating {regen} health".format(name = self.name, health = self.health, regen = self.health_regen))
 
     def attack(self, enemy):
         if self.strength <= 0:

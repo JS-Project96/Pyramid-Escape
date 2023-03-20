@@ -160,6 +160,7 @@ class Item:
         self.strength = strength
         self.spellpower = spellpower
         self.defence = defence
+        self.health_potion = health_potion
     
     def __repr__(self):
         return self.name, self.health, self.health_regen, self.strength, self.spellpower, self.defence, self.health_potion

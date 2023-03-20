@@ -90,7 +90,7 @@ class Boss:
         self.spellpower = spellpower
         self.defence = defence
 
-    def __repr__(self) -> str:
+    def __repr__(self):
         return self.name, self.health, self.health_regen, self.strength, self.spellpower, self.defence
     
     def lose_health(self, amount):
@@ -124,6 +124,20 @@ class Boss:
         if hero.health <= 0:
             print("{hero} has been defeated! Try again?".format(hero = hero.name))
 
+
+# Loot choice of item after defeating each enemy that gives certain stats
+class Item:
+    
+    def __init__(self, name, health = 0, health_regen = 0, strength = 0, spellpower = 0, defence = 0):
+        self.name = name
+        self.health = health
+        self.health_regen = health_regen
+        self.strength = strength
+        self.spellpower = spellpower
+        self.defence = defence
+    
+    def __repr__(self):
+        return self.name, self.health, self.health_regen, self.strength, self.spellpower, self.defence
 
 # hero = Hero()
 # enemy = Enemy("John", 200, 50, 0, 20)

@@ -31,6 +31,7 @@ class Hero:
     def use_health_pot(self):
         if self.health == 250:
             print("You are already at full health! No need to use a health potion!")
+            print("You have {} health potion(s) remaining".format(self.health_potion))
         elif self.health_potion > 0 and self.health >= 150:
             self.health_potion -= 1
             self.health = 250

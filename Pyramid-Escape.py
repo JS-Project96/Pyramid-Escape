@@ -82,7 +82,7 @@ class Enemy:
             print("{hero} has been defeated! Try again?".format(hero = hero.name))
 
 class Boss:
-    def __init__(self, name, health, health_regen, strength, spellpower, defence):
+    def __init__(self, name = "Jack", health = 300, health_regen = 10, strength = 30, spellpower = 60, defence = 50):
         self.name = name
         self.health = health
         self.health_regen = health_regen
@@ -98,7 +98,9 @@ class Boss:
         print("{name} has {health} health remaining".format(name = self.name, health = self.health))
     
     def regen_health(self):
-        health += self.health_regen
+        if self.health <= 290:
+            self.health += self.health_regen
+            print("{name} now has {health} after regenerating {regen} health".format(name = self.name, health = self.health, regen = self.health_regen))
 
     def attack(self, hero):
         if self.strength <= 0:
@@ -123,11 +125,14 @@ class Boss:
             print("{hero} has been defeated! Try again?".format(hero = hero.name))
 
 
-hero = Hero()
-enemy = Enemy("John", 200, 50, 0, 20)
+# hero = Hero()
+# enemy = Enemy("John", 200, 50, 0, 20)
 
-hero.attack(enemy)
-enemy.attack(hero)
+# hero.attack(enemy)
+# enemy.attack(hero)
 
-hero.cast_spell(enemy)
-enemy.cast_spell(hero)
+# hero.cast_spell(enemy)
+# enemy.cast_spell(hero)
+
+boss = Boss()
+boss.regen_health()

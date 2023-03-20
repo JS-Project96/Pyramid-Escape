@@ -66,6 +66,7 @@ class Hero:
         self.strength += item.strength
         self.spellpower += item.spellpower
         self.defence += item.defence
+        self.health_potion += item.health_potion
 
 
 # hero = Hero()

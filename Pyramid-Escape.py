@@ -12,7 +12,7 @@ class Hero:
         self.defence = defence
     
     def __repr__(self):
-        return self.name, self.health, self.strength, self.spellpower, self.defence
+        return self.name, self.health, self.health_regen, self.strength, self.spellpower, self.defence
     
     def lose_health(self, amount):
         self.health = self.health - (amount - self.defence)
@@ -153,7 +153,7 @@ class Item:
     def __repr__(self):
         return self.name, self.health, self.health_regen, self.strength, self.spellpower, self.defence
 
-# hero = Hero()
+hero = Hero()
 # enemy = Enemy("John", 200, 50, 0, 20)
 
 # hero.attack(enemy)
@@ -164,3 +164,8 @@ class Item:
 
 # boss = Boss()
 # boss.regen_health()
+
+viking_shield = Item("Viking Shield", defence = 30)
+hero.use_item(viking_shield)
+print(hero.defence)
+print(hero.__repr__())

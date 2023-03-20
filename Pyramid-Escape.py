@@ -60,7 +60,7 @@ class Hero:
             print("{name}'s spell hits {enemy} for {damage} damage!".format(name = self.name, enemy = enemy.name, damage = damage_dealt))
             enemy.lose_health(self.spellpower)
     
-    def use_item(self, item):
+    def equip_item(self, item):
         self.health += item.health
         self.health_regen += item.health_regen
         self.strength += item.strength

@@ -34,7 +34,7 @@ class Hero:
         if enemy.health <= 0:
             print("{enemy} has been defeated! Well done!".format(enemy = enemy.name))
     
-    def cast_spell(self, enemy):#
+    def cast_spell(self, enemy):
         if self.spellpower <= 0:
             damage_dealt = 0
         else:
@@ -44,6 +44,14 @@ class Hero:
         
         if enemy.health <= 0:
             print("{enemy} has been defeated! Well done!".format(enemy = enemy.name))
+    
+    def use_item(self, item):
+        self.health += item.health
+        self.health_regen += item.health_regen
+        self.strength += item.strength
+        self.spellpower += item.spellpower
+        self.defence += item.defence
+
 
 # hero = Hero()
 # print(hero.__repr__())

@@ -3,13 +3,14 @@
 
 class Hero:
 
-    def __init__(self, name = "Dave", health = 250, health_regen = 0, strength = 40, spellpower = 0, defence = 20):
+    def __init__(self, name = "Dave", health = 250, health_regen = 0, strength = 40, spellpower = 0, defence = 20, health_potion = 2):
         self.name = name
         self.health = health
         self.health_regen = health_regen
         self.strength = strength
         self.spellpower = spellpower
         self.defence = defence
+        self.health_potion = health_potion
     
     def __repr__(self):
         return self.name, self.health, self.health_regen, self.strength, self.spellpower, self.defence
@@ -27,6 +28,22 @@ class Hero:
             self.health += self.health_regen
             print("{name} now has {health} after regenerating {regen} health".format(name = self.name, health = self.health, regen = self.health_regen))
 
+    def use_health_pot(self):
+        if self.health == 250:
+            print("You are already at full health! No need to use a health potion!")
+        elif self.health_potion > 0 and self.health >= 150:
+            self.health_potion -= 1
+            self.health = 250
+            print("Health potion used: You're now max health {health}hp".format(health = self.health))
+            print("You have {} health potion(s) remaining".format(self.health_potion))
+        elif self.health_potion > 0 and self.health < 150:
+            self.health_potion -= 1
+            self.health += 100
+            print("Health potion used: You now have {health}hp".format(health = self.health))
+            print("You have {} health potion(s) remaining".format(self.health_potion))
+        else:
+            print("You have run out of health potions!")
+            
     def attack(self, enemy):
         if self.strength <= 0:
             damage_dealt = 0
@@ -147,10 +164,14 @@ class Item:
         return self.name, self.health, self.health_regen, self.strength, self.spellpower, self.defence
 
 hero = Hero()
-# enemy = Enemy("John", 200, 50, 0, 20)
+enemy = Enemy("John", 200, 50, 0, 20)
 
-# hero.attack(enemy)
-# enemy.attack(hero)
+hero.attack(enemy)
+enemy.attack(hero)
+enemy.attack(hero)
+enemy.attack(hero)
+enemy.attack(hero)
+enemy.attack(hero)
 
 # hero.cast_spell(enemy)
 # enemy.cast_spell(hero)
@@ -158,7 +179,10 @@ hero = Hero()
 # boss = Boss()
 # boss.regen_health()
 
-viking_shield = Item("Viking Shield", defence = 30)
-hero.use_item(viking_shield)
-print(hero.defence)
-print(hero.__repr__())
+# viking_shield = Item("Viking Shield", defence = 30)
+# hero.use_item(viking_shield)
+# print(hero.defence)
+# print(hero.__repr__())
+
+hero.use_health_pot()
+print(hero.health_potion)

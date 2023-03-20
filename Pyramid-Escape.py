@@ -152,7 +152,7 @@ class Boss:
 # Loot choice of item after defeating each enemy that gives certain stats
 class Item:
     
-    def __init__(self, name, health = 0, health_regen = 0, strength = 0, spellpower = 0, defence = 0):
+    def __init__(self, name, health = 0, health_regen = 0, strength = 0, spellpower = 0, defence = 0, health_potion = 0):
         self.name = name
         self.health = health
         self.health_regen = health_regen
@@ -161,7 +161,10 @@ class Item:
         self.defence = defence
     
     def __repr__(self):
-        return self.name, self.health, self.health_regen, self.strength, self.spellpower, self.defence
+        return self.name, self.health, self.health_regen, self.strength, self.spellpower, self.defence, self.health_potion
+
+
+# Test Code
 
 # hero = Hero()
 # enemy = Enemy("John", 200, 50, 0, 20)

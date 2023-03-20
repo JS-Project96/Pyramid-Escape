@@ -163,15 +163,15 @@ class Item:
     def __repr__(self):
         return self.name, self.health, self.health_regen, self.strength, self.spellpower, self.defence
 
-hero = Hero()
-enemy = Enemy("John", 200, 50, 0, 20)
+# hero = Hero()
+# enemy = Enemy("John", 200, 50, 0, 20)
 
-hero.attack(enemy)
-enemy.attack(hero)
-enemy.attack(hero)
-enemy.attack(hero)
-enemy.attack(hero)
-enemy.attack(hero)
+# hero.attack(enemy)
+# enemy.attack(hero)
+# enemy.attack(hero)
+# enemy.attack(hero)
+# enemy.attack(hero)
+# enemy.attack(hero)
 
 # hero.cast_spell(enemy)
 # enemy.cast_spell(hero)
@@ -184,5 +184,5 @@ enemy.attack(hero)
 # print(hero.defence)
 # print(hero.__repr__())
 
-hero.use_health_pot()
-print(hero.health_potion)
+# hero.use_health_pot()
+# print(hero.health_potion)

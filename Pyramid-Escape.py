@@ -16,7 +16,11 @@ class Hero:
     
     def lose_health(self, amount):
         self.health = self.health - (amount - self.defence)
-        print("{name} has {health} health remaining".format(name = self.name, health = self.health))
+        if self.health <= 0:
+            self.health = 0
+            print("{hero} has been defeated! Try again?".format(hero = self.name))
+        else:
+            print("{name} has {health} health remaining".format(name = self.name, health = self.health))
     
     def regen_health(self):
         if self.health <= 250:
@@ -30,9 +34,6 @@ class Hero:
             damage_dealt = self.strength - enemy.defence
             print("{name} attacks {enemy} for {damage} damage!".format(name = self.name, enemy = enemy.name, damage = damage_dealt))
             enemy.lose_health(self.strength)
-        
-        if enemy.health <= 0:
-            print("{enemy} has been defeated! Well done!".format(enemy = enemy.name))
     
     def cast_spell(self, enemy):
         if self.spellpower <= 0:
@@ -41,9 +42,6 @@ class Hero:
             damage_dealt = self.spellpower - ((enemy.defence * 3)/4)
             print("{name}'s spell hits {enemy} for {damage} damage!".format(name = self.name, enemy = enemy.name, damage = damage_dealt))
             enemy.lose_health(self.spellpower)
-        
-        if enemy.health <= 0:
-            print("{enemy} has been defeated! Well done!".format(enemy = enemy.name))
     
     def use_item(self, item):
         self.health += item.health
@@ -71,7 +69,11 @@ class Enemy:
     
     def lose_health(self, amount):
         self.health = self.health - (amount - self.defence)
-        print("{name} has {health} health remaining".format(name = self.name, health = self.health))
+        if self.health <= 0:
+            self.health = 0
+            print("{enemy} has been defeated! Well done!".format(enemy = self.name))
+        else:
+            print("{name} has {health} health remaining".format(name = self.name, health = self.health))
 
     def attack(self, hero):
         if self.strength <= 0:
@@ -80,9 +82,6 @@ class Enemy:
             damage_dealt = self.strength - hero.defence
             print("{name} attacks {hero} for {damage} damage!".format(name = self.name, hero = hero.name, damage = damage_dealt))
             hero.lose_health(self.strength)
-        
-        if hero.health <= 0:
-            print("{hero} has been defeated! Try again?".format(hero = hero.name))
     
     def cast_spell(self, hero):
         if self.spellpower <= 0:
@@ -91,9 +90,6 @@ class Enemy:
             damage_dealt = self.spellpower - ((hero.defence * 3)/4)
             print("{name}'s spell hits {hero} for {damage} damage!".format(name = self.name, hero = hero.name, damage = damage_dealt))
             hero.lose_health(self.spellpower)
-        
-        if hero.health <= 0:
-            print("{hero} has been defeated! Try again?".format(hero = hero.name))
 
 class Boss:
     def __init__(self, name = "Jack", health = 300, health_regen = 10, strength = 30, spellpower = 60, defence = 50):
@@ -109,7 +105,11 @@ class Boss:
     
     def lose_health(self, amount):
         self.health = self.health - (amount - self.defence)
-        print("{name} has {health} health remaining".format(name = self.name, health = self.health))
+        if self.health <= 0:
+            self.health = 0
+            print("{boss} has been defeated! Well done!".format(boss = self.name))
+        else:
+            print("{name} has {health} health remaining".format(name = self.name, health = self.health))
     
     def regen_health(self):
         if self.health <= 290:
@@ -123,9 +123,6 @@ class Boss:
             damage_dealt = self.strength - hero.defence
             print("{name} attacks {hero} for {damage} damage!".format(name = self.name, hero = hero.name, damage = damage_dealt))
             hero.lose_health(self.strength)
-        
-        if hero.health <= 0:
-            print("{hero} has been defeated! Try again?".format(hero = hero.name))
     
     def cast_spell(self, hero):
         if self.spellpower <= 0:
@@ -134,10 +131,6 @@ class Boss:
             damage_dealt = self.spellpower - ((hero.defence * 3)/4)
             print("{name}'s spell hits {hero} for {damage} damage!".format(name = self.name, hero = hero.name, damage = damage_dealt))
             hero.lose_health(self.spellpower)
-        
-        if hero.health <= 0:
-            print("{hero} has been defeated! Try again?".format(hero = hero.name))
-
 
 # Loot choice of item after defeating each enemy that gives certain stats
 class Item:

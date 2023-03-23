@@ -192,3 +192,22 @@ class Item:
 
 # hero.use_health_pot()
 # print(hero.health_potion)
+
+print("""
+---------------------------------------------------------------------------------------------------
+  _______     _______            __  __ _____ _____    ______  _____  _____          _____  ______ 
+ |  __ \ \   / /  __ \     /\   |  \/  |_   _|  __ \  |  ____|/ ____|/ ____|   /\   |  __ \|  ____|
+ | |__) \ \_/ /| |__) |   /  \  | \  / | | | | |  | | | |__  | (___ | |       /  \  | |__) | |__   
+ |  ___/ \   / |  _  /   / /\ \ | |\/| | | | | |  | | |  __|  \___ \| |      / /\ \ |  ___/|  __|  
+ | |      | |  | | \ \  / ____ \| |  | |_| |_| |__| | | |____ ____) | |____ / ____ \| |    | |____ 
+ |_|      |_|  |_|  \_\/_/    \_\_|  |_|_____|_____/  |______|_____/ \_____/_/    \_\_|    |______|
+---------------------------------------------------------------------------------------------------                                                                                                   
+""")
+print("""
+Welcome to Pyramid Escape! Your mission is to battle enemies to reach the top of the pyramid to 
+claim a very rare red diamond! This is an automated game where the choices you make along the way 
+determine whether you will be successful or not!
+
+First you must choose your class and give your Hero a name... Good Luck!
+""")
+

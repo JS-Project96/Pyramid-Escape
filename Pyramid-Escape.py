@@ -221,4 +221,13 @@ mage = Hero(name, 0, 70, 15)
 print("Warrior: " + str(warrior.__repr__()))
 print("Mage: " + str(mage.__repr__()))
 print(" ")
-choice = input('Please pick your class! Type "warrior" or "mage": ')
+while True:
+    choice = input('Please pick your class! Type "Warrior" or "Mage": ').lower()
+    if choice == 'warrior':
+        print("You have chosen: " + choice.title())
+        break
+    elif choice == 'mage':
+        print("You have chosen: " + choice.title())
+        break
+    else:
+        print('Please enter a valid choice: "Warrior" or "Mage"')

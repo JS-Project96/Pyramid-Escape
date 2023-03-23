@@ -3,7 +3,7 @@
 
 class Hero:
 
-    def __init__(self, name = "Dave", health = 250, health_regen = 0, strength = 40, spellpower = 0, defence = 20, health_potion = 2):
+    def __init__(self, name, strength, spellpower, defence, health = 250, health_regen = 0, health_potion = 2):
         self.name = name
         self.health = health
         self.health_regen = health_regen
@@ -13,7 +13,7 @@ class Hero:
         self.health_potion = health_potion
     
     def __repr__(self):
-        return self.name, self.health, self.health_regen, self.strength, self.spellpower, self.defence
+        return self.name, "{} Health Points".format(self.health), "{} Health regeneration".format(self.health_regen), "{} Strength".format(self.strength), "{} Spellpower".format(self.spellpower), "{} Defence".format(self.defence), "{} Health Potion(s)".format(self.health_potion)
     
     def lose_health(self, amount):
         self.health = self.health - (amount - self.defence)
@@ -211,3 +211,14 @@ determine whether you will be successful or not!
 First you must choose your class and give your Hero a name... Good Luck!
 """)
 
+name = input("Please enter your name: ").title()
+
+print(""" 
+Now you must pick your class! You have a choice between warrior and mage, their base stats are as follows...
+""")
+warrior = Hero(name, 40, 0, 30)
+mage = Hero(name, 0, 70, 15)
+print("Warrior: " + str(warrior.__repr__()))
+print("Mage: " + str(mage.__repr__()))
+print(" ")
+choice = input('Please pick your class! Type "warrior" or "mage": ')
